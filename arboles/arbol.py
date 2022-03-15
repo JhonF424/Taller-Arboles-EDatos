@@ -73,13 +73,30 @@ class arbol():
         if padre == None:
             return 0
 
-        if self.returnAlturaDelElemento(padre.getIzq() == n):
-            return
+        self.returnAlturaDelElemento(padre.getIzq(), n)
+        if padre.getDato == n:
+            print('Found')
 
-        if self.returnAlturaDelElemento(padre.getDer()):
-            return
+        self.returnAlturaDelElemento(padre.getDer(), n)
+        if padre.getDato == n:
+            print('Found')
 
+        return padre.getDato()
 
-        
-    
-    #def alturaDeUnElemento
+    def sumarNodos(self, padre):
+        if padre == None:
+            return 0
+
+        suma = 0
+
+        sumaI = self.sumarNodos(padre.getIzq())
+        sumaD = self.sumarNodos(padre.getDer())
+        suma = sumaI + sumaD + padre.getDato()
+
+        return suma
+
+    def encontrarPrimos(self, padre):
+        self.encontrarPrimos(padre.getIzq())
+        if padre.getDato() 
+        self.lista.append(padre.getDato())
+        self.encontrarPrimos(padre.getDer())
