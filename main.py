@@ -13,14 +13,14 @@ T.ingresar(nodo(1))
 
 	5
    / \
-  2	7
+  2	  7
  / \
 1   4
 
 '''
-T.inOrder(T.getRaiz())
-T.preOrder(T.getRaiz())
-T.posOrder(T.getRaiz())
+# T.inOrder(T.getRaiz())
+# T.preOrder(T.getRaiz())
+# T.posOrder(T.getRaiz())
 
 # print(T.getLista())
 
@@ -28,3 +28,13 @@ T.posOrder(T.getRaiz())
 
 # print(T.sumarNodos(T.getRaiz()))
 
+# print(T.encontrarMenor(T.getRaiz()))
+
+# print(T.encontrarMayor(T.getRaiz()))
+
+# print(T.mostrarHojas(T.getRaiz()))
+
+# T.listaHojas(T.getRaiz())
+# print("Lista de hojas del arbol: ", T.getLista())
+
+print(T.cantNodos(T.getRaiz(), 0))
