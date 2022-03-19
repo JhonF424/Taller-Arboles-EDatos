@@ -96,20 +96,23 @@ class arbol:
 
         return suma
 
-    def encontrarPrimos(self, padre, n=2):
+    def isPrimeR(self, num, i=2):
+        if i >= num:
+            print(num, "Es primo")
+            return True
+        elif num % i != 0:
+            return self.isPrimeR(num, i + 1)
+        else:
+            print(num, "No es primo")
+            return False
+
+    def recorrerPrimos(self, padre):
         if not padre:
-            return 0
+            return False
 
-        if n < padre.getDato():
-            return self.encontrarPrimos(padre.getIzq(), n + 1)
-
-        if n > padre.getDato():
-            return self.encontrarPrimos(padre.getDer(), n + 1)
-
-        if padre.getDato() % n != 0:
-            if padre.getDato() >= n:
-                print("Es primo")
-                return True
+        self.recorrerPrimos(padre.getIzq())
+        self.isPrimeR(padre.getDato())
+        self.recorrerPrimos(padre.getDer())
 
     def encontrarMenor(self, padre):
         if not padre:
@@ -171,4 +174,29 @@ class arbol:
 
         return cant
 
-    
+    def validarPares(self, num):
+        if not num:
+            return False
+
+        self.validarPares(num)
+        if num % 2 == 0:
+            print(num, "es Par")
+            return True
+
+        return False
+
+    def almacenarParesyPrimos(self, padre):
+
+        if not padre:
+            return 0
+
+        actualNode = padre.getDato()
+        self.almacenarParesyPrimos(padre.getIzq())
+        primo = self.isPrimeR(actualNode)
+        if primo is True:
+            self.lista.append(padre.getDato())
+
+        par = self.validarPares(actualNode)
+        if par is True:
+            self.lista.append(padre.getDato())
+

@@ -8,14 +8,19 @@ T.ingresar(nodo(2))
 T.ingresar(nodo(4))
 T.ingresar(nodo(7))
 T.ingresar(nodo(1))
+T.ingresar(nodo(11))
+T.ingresar(nodo(8))
+
 
 '''
 
-	5
+	 5
    / \
-  2	  7
- / \
-1   4
+  2	7
+ / \   \
+1   4   11
+       /
+      8
 
 '''
 # T.inOrder(T.getRaiz())
@@ -34,7 +39,14 @@ T.ingresar(nodo(1))
 
 # print(T.mostrarHojas(T.getRaiz()))
 
+# print(T.recorrerPrimos(T.getRaiz()))
+
 # T.listaHojas(T.getRaiz())
 # print("Lista de hojas del arbol: ", T.getLista())
 
-print(T.cantNodos(T.getRaiz(), 0))
+# print(T.cantNodos(T.getRaiz(), 0))
+
+T.almacenarParesyPrimos(T.getRaiz())
+print(T.getLista())
+
+# print(T.validarPares(T.getRaiz()))
