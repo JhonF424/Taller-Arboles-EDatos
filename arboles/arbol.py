@@ -1,4 +1,3 @@
-from tkinter.messagebox import NO
 from nodos.nodo import *
 
 
@@ -98,12 +97,10 @@ class arbol:
 
     def isPrimeR(self, num, i=2):
         if i >= num:
-            print(num, "Es primo")
             return True
         elif num % i != 0:
             return self.isPrimeR(num, i + 1)
         else:
-            print(num, "No es primo")
             return False
 
     def recorrerPrimos(self, padre):
@@ -146,7 +143,7 @@ class arbol:
 
         self.mostrarHojas(padre.getIzq())
 
-        if not padre.getIzq() or not padre.getDer():
+        if not padre.getIzq() and not padre.getDer():
             print(nodoActual)
 
         self.mostrarHojas(padre.getDer())
@@ -159,7 +156,7 @@ class arbol:
 
         self.listaHojas(padre.getIzq())
 
-        if not padre.getIzq() or not padre.getDer():
+        if not padre.getIzq() and not padre.getDer():
             self.lista.append(nodoActual)
 
         self.listaHojas(padre.getDer())
@@ -174,17 +171,6 @@ class arbol:
 
         return cant
 
-    def validarPares(self, num):
-        if not num:
-            return False
-
-        self.validarPares(num)
-        if num % 2 == 0:
-            print(num, "es Par")
-            return True
-
-        return False
-
     def almacenarParesyPrimos(self, padre):
 
         if not padre:
@@ -192,11 +178,26 @@ class arbol:
 
         actualNode = padre.getDato()
         self.almacenarParesyPrimos(padre.getIzq())
-        primo = self.isPrimeR(actualNode)
+        self.almacenarParesyPrimos(padre.getDer())
+        if actualNode % 2 == 0:
+            print(actualNode, "Es par, se agrega a la lista")
+            self.lista.append(padre.getDato())
+
+        primo = self.isPrimeR(padre.getDato())
         if primo is True:
+            print(actualNode, "Es primo, se agrega a la lista")
             self.lista.append(padre.getDato())
 
-        par = self.validarPares(actualNode)
-        if par is True:
-            self.lista.append(padre.getDato())
+    # def cantNodos(self, padre, cant):
+    #     if not padre:
+    #         return cant
 
+    #     cant = self.cantNodos(padre.getIzq(), cant + 1)
+    #     print("+1 nodo", padre.getDato())
+    #     cant = self.cantNodos(padre.getDer(), cant)
+    #     return cant
+
+
+    # MÉTODOS DE ELIMINACIÓN DEL ÁRBOL
+    
+    

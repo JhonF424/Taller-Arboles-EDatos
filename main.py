@@ -10,11 +10,14 @@ T.ingresar(nodo(7))
 T.ingresar(nodo(1))
 T.ingresar(nodo(11))
 T.ingresar(nodo(8))
+# T.ingresar(nodo(9))
+# T.ingresar(nodo(12))
+# T.ingresar(nodo(13))
 
 
 '''
 
-	 5
+    5
    / \
   2	7
  / \   \
@@ -46,7 +49,7 @@ T.ingresar(nodo(8))
 
 # print(T.cantNodos(T.getRaiz(), 0))
 
-T.almacenarParesyPrimos(T.getRaiz())
-print(T.getLista())
+# T.almacenarParesyPrimos(T.getRaiz())
+# print(T.getLista())
 
 # print(T.validarPares(T.getRaiz()))
